@@ -1,0 +1,57 @@
+{
+  "customers": [
+    { "name": "customer_id", "type": "INTEGER", "primary": true },
+    { "name": "first_name", "type": "TEXT" },
+    { "name": "last_name", "type": "TEXT" },
+    { "name": "email", "type": "TEXT" },
+    { "name": "phone_number", "type": "TEXT" },
+    { "name": "date_of_birth", "type": "DATE" },
+    { "name": "address", "type": "TEXT" },
+    { "name": "city", "type": "TEXT" },
+    { "name": "country", "type": "TEXT" },
+    { "name": "signup_date", "type": "DATE" },
+    { "name": "account_status", "type": "TEXT" }
+  ],
+  "products": [
+    { "name": "product_id", "type": "INTEGER", "primary": true },
+    { "name": "product_name", "type": "TEXT" },
+    { "name": "product_type", "type": "TEXT" },
+    { "name": "price", "type": "DECIMAL" },
+    { "name": "description", "type": "TEXT" },
+    { "name": "launch_date", "type": "DATE" }
+  ],
+  "customer_products": [
+    { "name": "customer_product_id", "type": "INTEGER", "primary": true },
+    { "name": "customer_id", "type": "INTEGER", "foreign": "customers.customer_id" },
+    { "name": "product_id", "type": "INTEGER", "foreign": "products.product_id" },
+    { "name": "start_date", "type": "DATE" },
+    { "name": "end_date", "type": "DATE" },
+    { "name": "status", "type": "TEXT" }
+  ],
+  "call_records": [
+    { "name": "call_id", "type": "INTEGER", "primary": true },
+    { "name": "customer_id", "type": "INTEGER", "foreign": "customers.customer_id" },
+    { "name": "call_start_time", "type": "DATETIME" },
+    { "name": "call_end_time", "type": "DATETIME" },
+    { "name": "duration", "type": "INTEGER" },
+    { "name": "call_type", "type": "TEXT" },
+    { "name": "call_initiation_region", "type": "TEXT" },
+    { "name": "call_destination_region", "type": "TEXT" }
+  ],
+  "sms_records": [
+    { "name": "sms_id", "type": "INTEGER", "primary": true },
+    { "name": "customer_id", "type": "INTEGER", "foreign": "customers.customer_id" },
+    { "name": "sms_time", "type": "DATETIME" },
+    { "name": "sms_type", "type": "TEXT" },
+    { "name": "sms_initiation_region", "type": "TEXT" },
+    { "name": "sms_destination_region", "type": "TEXT" },
+    { "name": "sms_length", "type": "INTEGER" }
+  ],
+  "data_usage": [
+    { "name": "usage_id", "type": "INTEGER", "primary": true },
+    { "name": "customer_id", "type": "INTEGER", "foreign": "customers.customer_id" },
+    { "name": "usage_date", "type": "DATE" },
+    { "name": "data_used_mb", "type": "DECIMAL" },
+    { "name": "region", "type": "TEXT" }
+  ]
+}

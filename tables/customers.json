@@ -1,0 +1,135 @@
+{
+    "rows": [
+      {
+        "customer_id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "phone_number": "+1-800-0001",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 2,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "jane.doe@example.com",
+        "phone_number": "+1-800-0002",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 3,
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "john.smith@example.com",
+        "phone_number": "+1-800-0003",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 4,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "jane.smith@example.com",
+        "phone_number": "+1-800-0004",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 5,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "phone_number": "+1-800-0005",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 6,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "jane.doe@example.com",
+        "phone_number": "+1-800-0006",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 7,
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "john.smith@example.com",
+        "phone_number": "+1-800-0007",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 8,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "jane.smith@example.com",
+        "phone_number": "+1-800-0008",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 9,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "phone_number": "+1-800-0009",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      },
+      {
+        "customer_id": 10,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "jane.doe@example.com",
+        "phone_number": "+1-800-0010",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      }
+    ]
+  }
+  

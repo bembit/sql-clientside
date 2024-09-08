@@ -1,0 +1,59 @@
+{
+    "rows": [
+      {
+        "customer_id": 1,
+        "call_start_time": "2024-08-28T07:50:00.900Z",
+        "call_end_time": "2024-08-28T08:26:00.900Z",
+        "duration": 36,
+        "call_type": "Outgoing",
+        "call_initiation_region": "Madrid",
+        "call_destination_region": "Madrid"
+      },
+      {
+        "customer_id": 1,
+        "call_start_time": "2024-08-26T07:50:00.900Z",
+        "call_end_time": "2024-08-26T08:33:00.900Z",
+        "duration": 43,
+        "call_type": "Outgoing",
+        "call_initiation_region": "Rome",
+        "call_destination_region": "London"
+      },
+      {
+        "customer_id": 2,
+        "call_start_time": "2024-08-26T07:50:00.900Z",
+        "call_end_time": "2024-08-26T08:15:00.900Z",
+        "duration": 25,
+        "call_type": "Incoming",
+        "call_initiation_region": "London",
+        "call_destination_region": "Paris"
+      },
+      {
+        "customer_id": 2,
+        "call_start_time": "2024-09-04T07:50:00.900Z",
+        "call_end_time": "2024-09-04T08:45:00.900Z",
+        "duration": 55,
+        "call_type": "Outgoing",
+        "call_initiation_region": "Berlin",
+        "call_destination_region": "Rome"
+      },
+      {
+        "customer_id": 2,
+        "call_start_time": "2024-08-31T07:50:00.900Z",
+        "call_end_time": "2024-08-31T07:52:00.900Z",
+        "duration": 2,
+        "call_type": "Incoming",
+        "call_initiation_region": "London",
+        "call_destination_region": "Rome"
+      },
+      {
+        "customer_id": 3,
+        "call_start_time": "2024-08-24T07:50:00.900Z",
+        "call_end_time": "2024-08-24T08:26:00.900Z",
+        "duration": 36,
+        "call_type": "Incoming",
+        "call_initiation_region": "Berlin",
+        "call_destination_region": "Madrid"
+      }
+    ]
+  }
+  

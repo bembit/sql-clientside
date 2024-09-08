@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Builder Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./js/queryBuilder.js"></script>
+    <script src="./js/savedQueries.js" type="module"></script>
+    <script src="./js/confirmationDialogue.js" type="module"></script>
+    <script src="./js/tableInspect.js"></script>
+
+    <script src="./sampleDataGenerator.js" defer></script>
+
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>SQL Query Builder</h1>
+        <nav>
+            <ul>
+                <button id="open-query-modal" class="btn">View Saved Queries</button>
+
+                <div>
+                    <button id="toggle-query-builder" class="btn" onclick="toggleElement('query-builder')">Show Query Builder</button>
+                    <button id="toggle-table-container" class="btn" onclick="toggleElement('table-container')">Show Table Tool</button>
+                </div>
+                <ul>
+                    <li><a href="./db-editor.html">DB Editor (WIP)</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </header>
+    <main id="query-builder-main">
+        <!-- <div id="query-builder" class="query-builder wrapper" draggable="true"> -->
+            <div id="query-builder" class="query-builder wrapper">
+            <button class="close-btn" onclick="closeElement('query-builder')">×</button>
+
+            <div class="font-size-controls">
+                <button class="font-btn full-width-btn" onclick="toggleFullWidth('query-builder')"><--></button>
+                <button class="font-btn" onclick="adjustFontSize('query-builder', 1)">+</button>
+                <button class="font-btn" onclick="adjustFontSize('query-builder', -1)">-</button>
+            </div>
+
+            <!-- table select -->
+            <div class="query-section">
+                <label for="select-table">FROM Table:</label>
+                <select id="select-table"></select>
+        
+                <label for="table-alias">Alias:</label>
+                <input type="text" id="table-alias" placeholder="Alias (optional)">
+            </div>
+        
+            <div class="query-section">
+                <label for="select-columns">Select Columns:</label>
+                <select id="select-columns" multiple></select>
+            </div>
+        
+            <div class="query-section">
+                <button id="add-join">Add JOIN</button>
+                <button id="add-where">Add WHERE</button>
+                <button id="add-condition">Add Condition</button>
+                <label>
+                    <input type="checkbox" id="select-distinct"> Select DISTINCT values
+                </label>
+            </div>
+        
+            <!-- This section will hold all the join inputs and their corresponding column selectors -->
+            <div class="query-section" id="join-inputs"></div>
+        
+            <div class="query-section" id="where-inputs"></div>
+        
+            <div class="query-section" id="condition-inputs"></div>
+        
+            <div class="query-section">
+                <h3>Constructed Query (double click to edit):</h3>
+                <div id="query-output"></div>
+            </div>
+            
+            <div class="query-section">
+                <label for="query-comment">Comment to save (optional):</label>
+                <input type="text" id="query-comment">
+            </div>
+        
+            <div class="query-section">
+                <button id="save-query">Save Query</button>
+            </div>
+
+            <!-- <div class="query-section">
+                <button id="export-results" style="display: none;">Export Results to CSV</button>
+            </div> -->
+
+            <div class="query-section">
+                <button id="generate-count-query">Generate Count Query</button>
+                <div id="count-query-output"></div>
+            </div>
+        </div>
+
+        <div id="table-container" class="table-container wrapper">
+            <button class="close-btn" onclick="closeElement('table-container')">×</button>
+
+            <div class="font-size-controls">
+                    <button class="font-btn full-width-btn" onclick="toggleFullWidth('table-container')"><--></button>
+                    <button class="font-btn" onclick="adjustFontSize('table-container', 1)">+</button>
+                    <button class="font-btn" onclick="adjustFontSize('table-container', -1)">-</button>
+            </div>
+
+            <label for="table-select">Select Table:</label>
+            <select id="table-select" onchange="displayTableDetails()"></select>
+            <div id="table-details">
+                <!-- Table details will be displayed here -->
+            </div>
+            <div id="sample-data" class="table-details">
+                <!-- Sample data will be displayed here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div id="query-modal" class="modal">
+        <div class="modal-content wrapper">
+            <span class="close" style="display: none;">&times;</span>
+            <div id="pagination-controls">
+                <div>
+                    <button id="prev-page">Previous</button>
+                    <span id="page-info"></span>
+                    <button id="next-page">Next</button>
+                </div>
+                
+                <div id="localstorage-info"></div>
+
+                <div>
+                    <button id="export-all-queries">Export All Queries to CSV</button>
+                  
+                    <!-- Import CSV Button and File Input -->
+                    <button id="import-queries" class="">Import CSV</button>
+                    <input type="file" id="csv-file-input" accept=".csv" style="display:none;">
+
+                    <button id="clear-localstorage" class="delete-query">Clear LocalStorage</button>
+                </div>
+            </div>
+            <!-- <h2>Saved Queries</h2> -->
+            <input type="text" id="search-query" placeholder="Search queries...">
+            <div id="query-list"></div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirmation-dialog" class="confirmation-dialog">
+        <div class="confirmation-dialog-content">
+            <span id="confirmation-message" class="confirmation-message"></span>
+            <div class="confirmation-buttons">
+                <button id="confirm-delete" class="confirm-button">Yes</button>
+                <button id="cancel-delete" class="cancel-button">No</button>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

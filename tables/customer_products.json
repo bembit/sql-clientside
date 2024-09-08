@@ -1,0 +1,18 @@
+{
+    "rows": [
+      {
+        "customer_id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "phone_number": "+1-800-0001",
+        "date_of_birth": "1985-04-25",
+        "address": "123 Main St",
+        "city": "London",
+        "country": "UK",
+        "signup_date": "2023-06-01",
+        "account_status": "Active"
+      }
+    ]
+  }
+  

@@ -1,0 +1,13 @@
+{
+    "rows": [
+      {
+        "product_id": 1,
+        "product_name": "Mobile Plan A",
+        "product_type": "Mobile",
+        "price": 29.99,
+        "description": "Basic mobile plan",
+        "launch_date": "2023-01-01"
+      }
+    ]
+  }
+  

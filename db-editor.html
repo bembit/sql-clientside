@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./js/savedQueries.js" type="module"></script>
+    <script src="./js/confirmationDialogue.js" type="module"></script>
+    <script src="./js/updateConverter.js" defer></script>
+    <script src="./main.js" defer></script>
+    <script src="./js/whatever.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>SQL DB Editor Test</h1>
+    <nav>
+        <ul>
+            <button id="open-query-modal" class="btn">View Saved Queries</button>
+            <ul>
+                <li><a href="./index.html">Home / Query Builder</a></li>
+            </ul>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="wrapper">
+        <div>
+            <h2>How should I do this?:</h2>
+            <textarea id="query-input" rows="5" cols="80" placeholder="Enter your SELECT query here or load from saved queries..."></textarea>
+            <button id="convert-query">Make Update from Query</button>
+        </div>
+    
+        <div>
+            <h2>Example Update Query:</h2>
+            <pre id="update-output"></pre>
+        </div>
+
+        <div>
+            <h2>Breakdown of Query:</h2>
+
+            <form id="query-form" style="display:none;">
+                <label for="table-name">Table Name:</label>
+                <input type="text" id="table-name" name="table-name" required><br>
+                
+                <label for="set-fields">SET Fields (comma-separated):</label>
+                <input type="text" id="set-fields" name="set-fields" required><br>
+                
+                <label for="subquery-conditions">Subquery Conditions (comma-separated):</label>
+                <input type="text" id="subquery-conditions" name="subquery-conditions" required><br>
+                
+                <label for="main-table-conditions">Main Table Conditions (comma-separated):</label>
+                <input type="text" id="main-table-conditions" name="main-table-conditions" required><br>
+                
+                <h2>generate final query</h2>
+
+                <button type="submit">Generate SQL Query</button>
+            </form>
+
+            <pre id="generated-query"></pre>
+        </div>
+    </div>
+
+    <!-- <div class="wrapper">
+
+    </div> -->
+
+     <!-- Modal Structure -->
+     <div id="query-modal" class="modal">
+        <div class="modal-content wrapper">
+            <span class="close" style="display: none;">&times;</span>
+            <div id="pagination-controls">
+                <div>
+                    <button id="prev-page">Previous</button>
+                    <span id="page-info"></span>
+                    <button id="next-page">Next</button>
+                </div>
+                
+                <div id="localstorage-info"></div>
+
+                <div>
+                    <button id="export-all-queries">Export All Queries to CSV</button>
+                  
+                    <!-- Import CSV Button and File Input -->
+                    <button id="import-queries" class="">Import CSV</button>
+                    <input type="file" id="csv-file-input" accept=".csv" style="display:none;">
+
+                    <button id="clear-localstorage" class="delete-query">Clear LocalStorage</button>
+                </div>
+            </div>
+            <!-- <h2>Saved Queries</h2> -->
+            <input type="text" id="search-query" placeholder="Search queries...">
+            <div id="query-list"></div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirmation-dialog" class="confirmation-dialog">
+        <div class="confirmation-dialog-content">
+            <span id="confirmation-message" class="confirmation-message"></span>
+            <div class="confirmation-buttons">
+                <button id="confirm-delete" class="confirm-button">Yes</button>
+                <button id="cancel-delete" class="cancel-button">No</button>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+    </div>
+</main> 
+</body>
+</html>

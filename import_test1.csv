@@ -1,0 +1,70 @@
+ID,Query Text,Comment
+_9d0rymbkb,"SELECT employee_id FROM employee_projects","jhgf"
+_staygwrya,"UPDATE employees
+            SET baseline = 10000
+            WHERE department_id IN (
+                SELECT d.department_id
+                FROM departments AS d
+                WHERE d.department_name != 'Engineering'
+            )
+            AND job_title = 'Engineer';","failed"
+_cl15z6q9c,"UPDATE employees
+            SET salary=60000
+            WHERE department_id IN (
+                SELECT d.department_id
+                FROM departments AS d
+                WHERE d.department_name != 'Engineering'
+            )
+            AND job_title = 'Engineer';","good one?"
+_jyd45nf7k,"UPDATE employees
+            SET salary=1160000
+            WHERE department_id IN (
+                SELECT d.department_id
+                FROM departments AS d
+                WHERE job_title = 'Engineer' AND d.department_name != 'Engineering'
+            );",""
+_ek6ovpxfd,"UPDATE employees
+            SET salary=60000
+            WHERE department_id IN (
+                SELECT d.department_id
+                FROM departments AS d
+                WHERE job_title = 'Engineer' AND d.department_name != 'Engineering'
+            );","works updates salary to 60k to all engineers who are not in the engineering department"
+_ii9zr2i07,"UPDATE employees SET salary=60000 WHERE (e.department_id = d.department_id) AND department_id IN (SELECT d.department_id FROM departments AS d WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering');","failed"
+_ds4z1gj8v,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name, e.salary FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering'
+",""
+_pige488cf,"SELECT * FROM employee_projects",""
+_vvywwebt3,"SELECT project_id FROM employee_projects",""
+_th8pbzzkx,"SELECT employee_project_id FROM employee_projects",""
+_wcmqnfpfk,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering'","All engineers assigned to wrong departments INC1274812"
+_zwn4um2ys,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer'","All engineers assigned to wrong departments INC1274812"
+_gx7rte8j3,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering'","All engineers assigned to wrong departments INC1274812"
+_2wjuitx45,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id",""
+_pfv3ys0j2,"SELECT id, name, position FROM employees","POSTGRES"
+_ayuwzjw3e,"SELECT * FROM customers this is good to add stuff","1111"
+_llnp7n5w1,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth FROM customers AS c","asdasd"
+_u5mm9xoza,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth FROM customers AS c","asdasdasdasdas"
+_901gjphb4,"SELECT * FROM customers","asdasd"
+_gh8fnona1,"SELECT customer_id, first_name, last_name, email, phone_number FROM customers xxxxxxxxxx","dehogynem"
+_kmbvx904y,"SELECT c.customer_id, c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth, du.data_used_mb, du.region FROM customers AS c INNER JOIN data_usage AS du ON c.customer_id = du.customer_id WHERE data_used_mb > 4950","req123456"
+_jrtu47yl9,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth, du.data_used_mb, du.region FROM customers AS c INNER JOIN data_usage AS du ON c.customer_id = du.customer_id WHERE data_used_mb > 4950","req11111"
+_3roqjdv1m,"SELECT * FROM customers","asd"
+_9d0rymbkb,"SELECT employee_id FROM employee_projects","jhgf"
+_ii9zr2i07,"UPDATE employees SET salary=60000 WHERE (e.department_id = d.department_id) AND department_id IN (SELECT d.department_id FROM departments AS d WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering');","failed"
+_pige488cf,"SELECT * FROM employee_projects",""
+_vvywwebt3,"SELECT project_id FROM employee_projects",""
+_th8pbzzkx,"SELECT employee_project_id FROM employee_projects",""
+_wcmqnfpfk,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering'","All engineers assigned to wrong departments INC1274812"
+_zwn4um2ys,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer'","All engineers assigned to wrong departments INC1274812"
+_gx7rte8j3,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id, d.department_id, d.department_name FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id WHERE e.job_title = 'Engineer' AND d.department_name != 'Engineering'","All engineers assigned to wrong departments INC1274812"
+_2wjuitx45,"SELECT e.employee_id, e.first_name, e.last_name, e.job_title, e.department_id FROM employees AS e INNER JOIN departments AS d ON e.department_id = d.department_id",""
+_pfv3ys0j2,"SELECT id, name, position FROM employees","POSTGRES"
+_ayuwzjw3e,"SELECT * FROM customers this is good to add stuff","1111"
+_llnp7n5w1,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth FROM customers AS c","asdasd"
+_u5mm9xoza,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth FROM customers AS c","asdasdasdasdas"
+_901gjphb4,"SELECT * FROM customers","asdasd"
+_gh8fnona1,"SELECT customer_id, first_name, last_name, email, phone_number FROM customers xxxxxxxxxx","dehogynem"
+_kmbvx904y,"SELECT c.customer_id, c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth, du.data_used_mb, du.region FROM customers AS c INNER JOIN data_usage AS du ON c.customer_id = du.customer_id WHERE data_used_mb > 4950","req123456"
+_jrtu47yl9,"SELECT c.first_name, c.last_name, c.email, c.phone_number, c.date_of_birth, du.data_used_mb, du.region FROM customers AS c INNER JOIN data_usage AS du ON c.customer_id = du.customer_id WHERE data_used_mb > 4950","req11111"
+_4fud03spl,"SELECT * FROM customers","asdasdasd"
+_rhwhal71s,"SELECT * FROM customers","asdasd"
