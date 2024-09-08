@@ -245,15 +245,39 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('queries', JSON.stringify(queries));
     }
 
+    // could be rewritten to target the beginning of `FROM` clause, so it would only need the plain query text and not the whole builds structure
+    // function generateCountQuery() {
+    //     const selectClause = 'SELECT COUNT(*) AS total_count';
+    //     const fromClause = `FROM ${queryParts.from}`;
+    //     const joinsClause = queryParts.joins.length > 0 ? ' ' + queryParts.joins.join(' ') : '';
+    //     const whereClause = queryParts.where.length > 0 ? ' WHERE ' + queryParts.where.join(' AND ') : '';
+    //     const conditionsClause = queryParts.conditions.length > 0 ? ' AND ' + queryParts.conditions.join(' AND ') : '';
+
+    //     const countQuery = `${selectClause} ${fromClause}${joinsClause}${whereClause}${conditionsClause}`;
+
+    //     countQueryOutput.textContent = countQuery;
+    // }
+
     function generateCountQuery() {
-        const selectClause = 'SELECT COUNT(*) AS total_count';
-        const fromClause = `FROM ${queryParts.from}`;
-        const joinsClause = queryParts.joins.length > 0 ? ' ' + queryParts.joins.join(' ') : '';
-        const whereClause = queryParts.where.length > 0 ? ' WHERE ' + queryParts.where.join(' AND ') : '';
-        const conditionsClause = queryParts.conditions.length > 0 ? ' AND ' + queryParts.conditions.join(' AND ') : '';
-
-        const countQuery = `${selectClause} ${fromClause}${joinsClause}${whereClause}${conditionsClause}`;
-
+        // Get the current built query text
+        const builtQuery = queryOutput.textContent;
+    
+        // Find the position of the 'FROM' clause
+        const fromIndex = builtQuery.toUpperCase().indexOf('FROM');
+    
+        if (fromIndex === -1) {
+            // If 'FROM' is not found, we can't generate a COUNT query
+            console.error('Invalid query format: No FROM clause found.');
+            return;
+        }
+    
+        // Extract everything from 'FROM' onwards (this includes JOINs, WHERE, etc.)
+        const fromClauseOnwards = builtQuery.substring(fromIndex);
+    
+        // Construct the COUNT query using the extracted FROM clause
+        const countQuery = `SELECT COUNT(*) AS total_count ${fromClauseOnwards}`;
+    
+        // Output the COUNT query
         countQueryOutput.textContent = countQuery;
     }
 
@@ -283,40 +307,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     populateTableSelect();
 
-    function exportResultsToCSV() {
-        const resultsText = queryResults.textContent;
-        const results = JSON.parse(resultsText);
+    // function exportResultsToCSV() {
+    //     const resultsText = queryResults.textContent;
+    //     const results = JSON.parse(resultsText);
         
-        if (!Array.isArray(results)) {
-            console.error('Query results are not in the expected format.');
-            return;
-        }
+    //     if (!Array.isArray(results)) {
+    //         console.error('Query results are not in the expected format.');
+    //         return;
+    //     }
     
-        // Extract headers
-        const headers = Object.keys(results[0]);
+    //     // Extract headers
+    //     const headers = Object.keys(results[0]);
         
-        // Convert JSON to CSV format
-        const csvContent = [
-            headers.join(','), // CSV header row
-            ...results.map(row => headers.map(header => `"${String(row[header]).replace(/"/g, '""')}"`).join(',')) // CSV data rows
-        ].join('\n');
+    //     // Convert JSON to CSV format
+    //     const csvContent = [
+    //         headers.join(','), // CSV header row
+    //         ...results.map(row => headers.map(header => `"${String(row[header]).replace(/"/g, '""')}"`).join(',')) // CSV data rows
+    //     ].join('\n');
         
-        // Create a Blob with CSV content
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    //     // Create a Blob with CSV content
+    //     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         
-        // Create a link element and trigger the download
-        const link = document.createElement('a');
-        if (link.download !== undefined) { // feature detection
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'query_results.csv');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    }
-    
-    // document.getElementById('export-results').addEventListener('click', exportResultsToCSV);
+    //     // Create a link element and trigger the download
+    //     const link = document.createElement('a');
+    //     if (link.download !== undefined) { // feature detection
+    //         const url = URL.createObjectURL(blob);
+    //         link.setAttribute('href', url);
+    //         link.setAttribute('download', 'query_results.csv');
+    //         document.body.appendChild(link);
+    //         link.click();
+    //         document.body.removeChild(link);
+    //     }
+    // }
 
     // Enable query editing on double click
     queryOutput.addEventListener('dblclick', () => {
@@ -325,8 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = currentQuery;
         input.style.width = '100%';
         input.style.height = '100px';
+        input.style.paddingTop = '10px';
+        input.style.marginTop = '10px';
         
-        queryOutput.innerHTML = '';
+        queryOutput.innerHTML = currentQuery;
         queryOutput.appendChild(input);
         input.focus();
 
