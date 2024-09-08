@@ -153,6 +153,10 @@ main#query-builder-main .wrapper:last-child {
     flex-basis: 50%;
 }
 
+main.query-converter .wrapper {
+    flex-basis: 100%;
+}
+
 .modal .wrapper {
     min-width: 800px;
     max-width: 1800px;
